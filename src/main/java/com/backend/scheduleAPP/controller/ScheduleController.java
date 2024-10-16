@@ -35,13 +35,13 @@ public ScheduleController(ScheduleService scheduleService) {
     }
 
     @PostMapping("/schedule")
-    public String schedule(@RequestBody DateDto dateDto) {
+    public Duration schedule(@RequestBody DateDto dateDto) {
         LocalDateTime givenDateTime = dateDto.getDate();
         LocalDateTime now = LocalDateTime.now();
 
         System.out.println("Fecha recibida: " + givenDateTime);
         System.out.println("Fecha actual: " + now);
-        String durationDate = scheduleService.schedule(givenDateTime);
+        Duration durationDate = scheduleService.schedule(givenDateTime);
         return durationDate;
     }
 
@@ -74,13 +74,13 @@ public ScheduleController(ScheduleService scheduleService) {
     }
 
     @GetMapping("/getEventDuration/{id}")
-    public String getEventDuration(@PathVariable Long id){
+    public Duration getEventDuration(@PathVariable Long id){
         Event event = eventRepository.findById(id).orElseThrow();
         return scheduleService.schedule(event.getEnd_date());
     }
 
     @GetMapping("/getAllEventDuration")
-    public List<String> getAllEventDuration(){
+    public List<Duration> getAllEventDuration(){
         Iterable<Event> events = eventRepository.findAll();
         return scheduleService.getAllEventDuration(events);
     }
