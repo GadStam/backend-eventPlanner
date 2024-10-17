@@ -12,7 +12,6 @@ public class Event {
     private Long id;
     private String title;
     private String description;
-    private LocalDateTime start_date;
     private LocalDateTime end_date;
 
     public String getTitle() {
