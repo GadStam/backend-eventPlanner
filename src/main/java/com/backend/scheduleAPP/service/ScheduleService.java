@@ -39,9 +39,6 @@ public class ScheduleService {
                 case "description":
                     eventToUpdate.setDescription((String) value);
                     break;
-                case "start_date":
-                    eventToUpdate.setStart_date(parseDateTime((String) value));
-                    break;
                 case "end_date":
                     eventToUpdate.setEnd_date(parseDateTime((String) value));
                     break;

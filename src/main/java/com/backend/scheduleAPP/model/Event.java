@@ -39,13 +39,6 @@ public class Event {
         this.description = description;
     }
 
-    public LocalDateTime getStart_date() {
-        return start_date;
-    }
-
-    public void setStart_date(LocalDateTime start_date) {
-        this.start_date = start_date;
-    }
 
     public LocalDateTime getEnd_date() {
         return end_date;
